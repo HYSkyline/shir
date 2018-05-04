@@ -4,16 +4,16 @@
 
 # Site
 title: 双犬科技基站
-subtitle: 陈力就列不能者止 用之则行舍之则藏
+subtitle: 懈怠乃是奴隶特权  鸢飞戾天者需永远警惕勤勉
 description: personal blog
-keywords: blogs
-author: 傲雪双犬
+keywords: GIS/map/sleep
+author: 飛鳥双犬
 language: zh-cn
 timezone: Asia/Shanghai
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://hyskyline.github.io/shir/
+url: https://hyskyline.studio
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
