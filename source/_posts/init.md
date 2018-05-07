@@ -1,17 +1,25 @@
 ---
-title: 全站初始化
+title: 格式测试
+date: 2018-04-18 20:22:18
 tags:
  日常
  初始
 ---
-这是这里的第一篇文章，是炙热大地上的第一滴水。
+{% blockquote 长者, 他改变了中国 %}
+	透过现象看本质
+{% endblockquote %}
 
-不间断的大雨正在天幕之上酝酿流动，等待一万道雷电划裂云层。而当雨水拥抱大地那一刻，生命就此诞生。
+{% pullquote [class] %}
+	办法总比困难多
+{% endpullquote %}
 
-在这个瞬间，万物俱寂，仔细听却有隐隐潮声。璀璨的星海在虚空中低语了一切，时间对它们而言是黑暗中的大风。亿万次轮回过去，清冷的星光依然照彻寰宇，不死不灭。
+{% codeblock HelloWorld lang:python %}
+import this
+print 'Hello, world!'
+{% endcodeblock %}
 
-既然依旧无法阻止这个开头，不如就尝试着去改变那个结局吧。
+{% link 联网确认 http://www.baidu.com 网速测试 %}
 
-
-</br>
-<p style="text-align:right; font-style: italic;">——韩</br>2018年5月5日</p>
+<div class="signatureDiv">
+	![签名](http://squanblog.oss-cn-hongkong.aliyuncs.com/signature.png?x-oss-process=image/resize,h_120)
+</div>
