@@ -2,7 +2,7 @@
 title: 关于
 date: 2018-04-20 20:32:18
 ---
-<h2>关于</h2>
+<h2>自述</h2>
 
 <blockquote cite="Friedrich Hölderlin 《Brot und Wein》" class="quote">
 	Bis daß Helden genug in der ehernen Wiege gewachsen,
