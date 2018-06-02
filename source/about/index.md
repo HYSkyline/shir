@@ -6,7 +6,7 @@ date: 2018-04-20 20:32:18
 
 <blockquote cite="Friedrich Hölderlin 《Brot und Wein》" class="quote">
 	Bis daß Helden genug in der ehernen Wiege gewachsen,
-	Herzen an Kraft, wie sonst, ähnlich den Himmlischen sind.Donnernd kommen sie drauf.
+	Herzen an Kraft, wie sonst, ähnlich den Himmlischen sind. Donnernd kommen sie drauf.
 	Indessen dünket mir öftersBesser zu schlafen, wie so ohne Genossen zu sein.
 </blockquote>
 

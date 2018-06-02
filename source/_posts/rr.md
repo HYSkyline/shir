@@ -7,7 +7,7 @@ tags:
 <br>
 
 <blockquote cite="Graham Greene 《The End of the Affair》" class="quote">
-	We are in the same desert, looking for perhaps the samespring,
+	We are in the same desert, looking for perhaps the same spring,
 	but lose sight of each other, one is always lonely.
 </blockquote>
 
