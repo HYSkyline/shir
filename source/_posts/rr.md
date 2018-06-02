@@ -4,6 +4,8 @@ date: 2018-06-02 23:03:05
 tags:
 - Python
 ---
+<br>
+
 <blockquote cite="Graham Greene 《The End of the Affair》" class="quote">
 	We are in the same desert, looking for perhaps the samespring,
 	but lose sight of each other, one is always lonely.
