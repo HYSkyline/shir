@@ -5,7 +5,7 @@ tags:
 - GIS
 - Python
 ---
-0.
+<span class="pageTitle">0.</span>
 
 用arcpy读取点线面的转折点坐标。这是批量化处理数据的根本。
 
@@ -21,7 +21,7 @@ tags:
 	![基本几何类型——点、线、面](https://squanblog.oss-cn-hongkong.aliyuncs.com/arcpy_init/all.png?x-oss-process=image/resize,h_480)
 </div>
 
-1.
+<span class="pageTitle">1.</span>
 
 首先要明白点的数据结构，明白它是按照怎样的逻辑进行组织的。(当要用到投影坐标系的时候可以用WGS 1984 World Mercator，如果要使用其他空间参考，可以用arcpy.ListSpatialReference函数进行搜索)
 
@@ -101,7 +101,7 @@ for row in cursor:
 	![点要素的几何修改变动对比](https://squanblog.oss-cn-hongkong.aliyuncs.com/arcpy_init/point.png?x-oss-process=image/resize,h_480)
 </div>
 
-2.
+<span class="pageTitle">2.</span>
 
 线和点的区别仅仅在于数据结构有所不同，放到抽象思路的层面，其实逻辑是相同的。
 
@@ -180,7 +180,7 @@ for row in cursor:
 	![线要素的几何修改变动对比](https://squanblog.oss-cn-hongkong.aliyuncs.com/arcpy_init/line.png?x-oss-process=image/resize,h_440)
 </div>
 
-3.
+<span class="pageTitle">3.</span>
 
 面是最复杂的要素，不仅仅是因为单条记录中经常出现多个面，也包括孔洞、自交叉等非常的几何关系。其数据结构也有相似的特点。
 
@@ -281,7 +281,7 @@ cursor.updateRow(row)
 
 写在后面的话。
 
-a.
+<span class="pageTitle">a.</span>
 
 为什么要用arcpy？
 
@@ -293,7 +293,7 @@ a.
 
 所以，arcpy不是作为新的分析方法出现，也不是作为深度的分析工具，它只是辅助工具的辅助工具。像是马克沁的准星，或是手风琴的键帽，并非不可或缺，但确实能解放落后的生产力。
 
-o.
+<span class="pageTitle">b.</span>
 
 arcpy能做些什么？
 

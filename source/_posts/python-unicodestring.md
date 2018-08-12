@@ -10,13 +10,13 @@ tags:
 	7. 让我们下去，在那里打乱他们的语言，让他们不能知晓别人的意。
 </blockquote>
 
-0.
+<span class="pageTitle">0.</span>
 
 在Python2环境中，输入的文本有两种可能形态: Unicode和string。其中Unicode是机器阅读的语言，而string是人阅读的语言。从Unicode到string是编码过程，反之是解码过程。
 
 机器不会有心的壁垒，其所阅读的内容也就简单得多。从机器被制造到当下，只经历了从Ascii到Unicode的变更，在可预见的未来没有再次变更的可能。而人有不同的面孔，编码的类型也就不断推陈出新。从阿拉伯文到东南亚语系，不一而足。
 
-1.
+<span class="pageTitle">1.</span>
 
 最初的编码标准在英语国家被提出，只需要涵盖26个字母(及其大写)，Ascii编码就此诞生。Ascii编码通过8位二进制数字进行映射，因此最多标识256(2<sup>8</sup>)个符号，Ascii编码也成为单字节编码的范本。
 
@@ -28,7 +28,7 @@ tags:
 
 当前几乎所有机器的内置编码环境都是Unicode。当输入的中文保持Unicode编码时，机器自会知你的意。
 
-2.
+<span class="pageTitle">2.</span>
 
 似乎问题已经解决了，只要统一采用Unicode就能避免陷入纷争之中。机器已经为人准备好了，人准备好了吗？
 
@@ -57,7 +57,7 @@ u'\u65e0'
 簇
 {% endcodeblock %}
 
-3.
+<span class="pageTitle">3.</span>
 
 于是就涉及到编码的转换，其原则上秉承以下流程：
 
@@ -79,7 +79,7 @@ u'\u65e0'
 	![Ascii/Unicode编码对比](https://squanblog.oss-cn-hongkong.aliyuncs.com/unicode/stringencoding.jpg)
 </div>
 
-4.
+<span class="pageTitle">4.</span>
 
 在Python2环境中，情况会更特殊一些。在Python出现几个月后Unicode才被提出，故Python2早期仍以Ascii编码为默认编码，Unicode仅是类似补丁包的存在。
 
