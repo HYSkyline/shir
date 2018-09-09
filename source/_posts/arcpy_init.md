@@ -70,7 +70,7 @@ name: t-e   	lng:121.25,  lat:31.04
 name: t-f   	lng:121.26,  lat:31.05
 {% endcodeblock %}
 
-读取坐标只是第一步，篡改乃至增减记录才是最后的目标。这个时候需要用到不一样的工具，但是思路还是相同。
+读取坐标只是第一步，修改乃至增减记录才是最后的目标。这个时候需要用到不一样的工具，但是思路还是相同。
 
 {% codeblock 更新name字段属性 lang:python %}
 cur = arcpy.da.SearchCursor('gdb/pt', ['NAME', 'SHAPE@'], spatial_reference=arcpy.SpatialReference('WGS 1984'))
@@ -79,7 +79,7 @@ for row in cur:
     cur.updateRow(row)
 {% endcodeblock %}
 
-通过以上内容，即可在每个点的名称前加上update前缀。	这是对普通记录的篡改，对于坐标位置的篡改需要构造相应的几何要素类(与令牌的类型有关，当使用SHAPE@XY时就不需要构造要素类)。
+通过以上内容，即可在每个点的名称前加上update前缀。	这是对普通记录的修改，对于坐标位置的修改需要构造相应的几何要素类(与令牌的类型有关，当使用SHAPE@XY时就不需要构造要素类)。
 
 {% codeblock 更新点的位置 lang:python %}
 import arcpy
