@@ -271,11 +271,65 @@ cursor.updateRow(row)
 
 孔洞的出现大大增加了算法的复杂程度，也没有专门对应的类，其实是很烦的事情。
 
-另外对面要素的修改很高概率会倒是几何错误，那是另外一个大坑了。几何错误的出现说明在算法上就存在漏洞，不是通过简单的代码层能够解决的事情，更多的需要在算法架构上多做工作。
+另外对面要素的修改很高概率会导致几何错误，那是另外一个大坑了。几何错误的出现说明在算法上就存在漏洞，不是通过简单的代码层能够解决的事情，更多的需要在算法架构上多做工作。
 
 <div class="blogPic">
 	![面要素的几何修改变动对比](https://squanblog.oss-cn-hongkong.aliyuncs.com/arcpy_init/polygon.png?x-oss-process=image/resize,h_440)
 </div>
+
+<span class="pageTitle">4.</span>
+
+如果只是读取现有文件的几何信息，或是对现有节点进行调整，意义总是有限。在执行编辑任务的时候，往往会采用不同来源的数据，把外部数据应用于编辑工作，也许会更有价值。
+
+下面拿一个文本文件以举例。这是一个面要素，包含勘界定标的一系列节点及其坐标，需要把它们从文本数据转化为GIS内的要素。
+
+{% codeblock 外部文本数据案例 lang:python %}
+oid		x				y
+J1		3196662.835		348675.133
+J2		3196663.619		348685.293
+J3		3196662.794		348687.539
+J4		3196659.940		348690.772
+J5		3196654.471		348693.026
+J6		3196643.554		348697.483
+J7		3196636.148		348702.495
+J8		3196631.863		348705.561
+J1		3196662.835		348675.133
+{% endcodeblock %}
+
+首先创建一个新的面要素来承载外部数据，然后用这些数据来拟合出具体的几何形状。
+
+{% codeblock 新建面要素 lang:python %}
+# 新建面要素
+arcpy.CreateFeatureclass_management(r'G:\Projects\DB\result.gdb', 're', "POLYGON",None, "DISABLED", "DISABLED",arcpy.SpatialReference('WGS 1984 World Mercator'))
+
+cur = arcpy.da.InsertCursor(r'G:\Projects\DB\result.gdb\re',['SHAPE@'])
+
+# pt以存储折点，ar以存储面数据结构
+pt = arcpy.Point()
+ar = arcpy.Array()
+try:
+    # 创建折点
+    for pts in contents:
+        # oid, pty, ptx = pts.split('\t')
+        oid = pts.split('\t')[0]
+        ptx = pts.split('\t')[1]
+        pty = pts.split('\t')[2]
+        if ptx[-1:] == '\n':
+            ptx = ptx[:-1]
+        pt.X = float(ptx.replace(' ', ''))
+        pt.Y = float(pty.replace(' ', ''))
+        # 将生成的折点存储在数组中，通过数组最后形成面的形状
+        ar.add(pt)
+    # 从折点组形成面形状
+    pg = arcpy.Polygon(ar)
+    # 将面形状存储于面要素中
+    cur.insertRow([pg])
+except Exception as e:
+    print 'err:' + str(e)
+del cur
+{% endcodeblock %}
+
+通过以上的步骤，就能应用外部坐标数据以更好地完成编辑任务。其它的几何类型——线和点——也是类似操作。
 
 <hr>
 
