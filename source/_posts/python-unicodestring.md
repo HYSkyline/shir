@@ -43,8 +43,11 @@ tags:
 所以现在形成这样的局面: 人们各执一词，没有统一的转换对照。一个相同意义的字符，以两种不同的编码算法输入机器，至少有一种会乱码。
 
 {% codeblock 同个字符的不同编码环境输出 lang:python %}
+# Python2环境(支持输出编码完成后的字符串变量)
 # unicode输入
 >>> char = u'无'
+>>> print(type(char))
+<class 'Unicode'>
 >>> print char
 u'\u65e0'
 
@@ -54,7 +57,24 @@ u'\u65e0'
 
 # 输出utf-8
 >>> print char.encode('utf-8')
-簇
+鏃?
+
+
+# Python3环境(支持输出未编码的字段变量)
+# unicode输入
+>>> char = '无'
+>>> print(type(s))
+<class 'str'>
+>>> print(char)
+无
+
+# 输出gb2312
+>>> print(char.encode('gb2312'))
+b'\xce\xde'
+
+# 输出utf-8
+>>> print(char.encode('utf-8'))
+b'\xe6\x97\xa0'
 {% endcodeblock %}
 
 <span class="pageTitle">3.</span>
@@ -65,21 +85,25 @@ u'\u65e0'
 	![编码转换流程示意图](https://squanblog.oss-cn-hongkong.aliyuncs.com/unicode/codetrans.jpg?x-oss-process=image/resize,h_120)
 </div>
 
-而在Python环境下，解码与编码的过程通过decode()与encode()函数实现。
+(在Python3环境下，编码前为string类型，编码后为bytes类型)。
+
+而在Python中，解码与编码的过程通过decode()与encode()函数实现。
 
 因此，Python的编码转换流程就确定了。
 
-(1). 确定取得的string是何编码。
+(1). 确定取得的人类内容是何编码。
 
-(2). 将string解码为Unicode，并重新以目标编码进行输出。
+(2). 将人类内容解码为机器内容，并重新以需要的格式进行编码并输出。
 
-其中第1步尤其重要，单凭string的字母是无法确定编码类型的(例如GB2312与BIG5)。编码类型原则上需要从数据源进行确定，而在大多数情况下，也可以通过chardet等第三方库进行检测。
+其中第1步尤其重要，单凭字母是无法确定编码类型的(例如GB2312与BIG5)。编码类型原则上需要从数据源进行确定，而在大多数情况下，也可以通过chardet等第三方库进行检测。
 
 <div class="blogPic">
 	![Ascii/Unicode编码对比](https://squanblog.oss-cn-hongkong.aliyuncs.com/unicode/stringencoding.jpg)
 </div>
 
 <span class="pageTitle">4.</span>
+
+一些补充：
 
 在Python2环境中，情况会更特殊一些。在Python出现几个月后Unicode才被提出，故Python2早期仍以Ascii编码为默认编码，Unicode仅是类似补丁包的存在。
 
@@ -92,6 +116,24 @@ import sys
 # site.py中包含del sys.setdefaultencoding()动作
 reload(sys)
 sys.setdefaultencoding('utf-8')
+{% endcodeblock %}
+
+在Python3环境中，Python程序运行编码环境已经是Unicode，但是在Windows内调用外部文本文件的时候还应当注意是否采用了gbk的OS默认编码。
+
+当以utf-8格式存储了一个文本文件，又在Python3中未传入encoding='utf-8'直接打开此文件，就会得到类似下面这样的结果。
+
+{% codeblock Python3调用外部文本文档 lang:python %}
+# 打开文本文件(此时默认以OS编码gbk打开文件)
+>>> f = open('test.txt', 'r')
+>>> content = f.read()
+>>> f.close()
+
+# 原数据经过utf-8格式进行编码及存储，又以gbk格式进行错误解码，因此得到错误的数据内容
+>>> print(content)
+鏃?
+# 为纠正错误，需要去除gbk的错误解码过程(即以gbk格式进行编码)，并以utf-8格式重新进行解码
+>>> print(content.encode('gbk').decode('utf-8'))
+无
 {% endcodeblock %}
 
 <span>————————</span>
