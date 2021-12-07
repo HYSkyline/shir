@@ -1,0 +1,43 @@
+.article-title {
+  font-size: 1.5em;
+  line-height: 1.2em;
+  padding-bottom: 4px
+  border-bottom: 1px solid #bdbdbd;
+  margin-bottom: 2px;
+}
+
+.archive {
+  padding: 0 20px;
+  margin-bottom: 1em;
+
+  .post-archive {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+    margin-bottom: 0;
+
+    .post-item {
+      margin: 6px 0;
+      line-height: 1.5;
+
+      .post-date {
+        float: right;
+      
+        @media screen and (max-width: 425px) {
+          float: none;
+          margin-left: 0.5em;
+          font-size: 90%;
+          color: #999;
+        }
+      }
+
+      .post-title {
+        border-bottom: 1px dotted;
+
+        &:hover {
+          border-bottom: 1px solid;
+        }
+      }
+    }
+  }
+}

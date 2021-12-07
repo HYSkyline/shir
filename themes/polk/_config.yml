@@ -1,0 +1,28 @@
+# Favicon
+favicon: /sq.png
+
+# SEO
+keywords: 
+
+# Site title separator
+separator: '-'
+
+# RSS
+rss: /atom.xml
+
+# SNS config
+sns:
+  Blog: /archives
+  GitHub: https://github.com/HYSkyline
+  Sina: https://weibo.com/HYSkyline?refer_flag=1001030201_&is_hot=1
+
+# Nav menu
+menu:
+  Home: /
+  Archives: /archives
+  About: /about
+  Map: /map
+
+# Support for LiveRe comments system.
+# You can get your uid from https://livere.com/insight/myCode (General web site)
+livere_uid: MTAyMC8zNjIzOC8xMjc3Mw==

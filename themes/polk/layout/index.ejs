@@ -1,0 +1,14 @@
+<script>document.getElementsByClassName('container')[0].style.maxWidth='100%'</script>
+<div class="home">
+  <div class="info">
+    <a class="logo" id = "Current_Time_Area"> </a>
+    <div class="subtitle" id = "Left_Time_Area"> </div>
+    <div class="sns">
+      <% for (let item in theme.sns) { %>
+          <a href="<%- url_for(theme.sns[item]) %>"><%= item %></a>
+      <% } %>
+    </div>
+    <%- partial('_partial/footer') %>
+  </div>
+</div>
+<script type="text/javascript" src="/js/indexTime.js"></script>

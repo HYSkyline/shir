@@ -1,0 +1,209 @@
+@font-face {
+  font-family: 'FOT';
+  src: url('/font/squanTime.ttf') format('TrueType');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+}
+
+html, body, .container {
+  height: 100%;
+  font-family: Hiragino Sans GB, Microsoft YaHei, WenQuanYi, Airal, sans-serif;
+  color: #444;
+}
+
+@media screen and (min-device-width: 761px) {
+  .container {
+    max-width: 80%;
+    margin: 0 auto;
+  }
+}
+@media screen and (max-device-width: 760px) {
+  .container {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+.home {
+  background-image: url('/img/indexSnow12.gif');
+  background-position: center;
+  background-size:cover;
+  background-repeat: no-repeat;
+  display: table;
+  width: 100%;
+  height: 100%;
+
+  .info {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+
+    .logo, .subtitle {
+      color: white;
+      font-size: x-large;
+      font-family: FOT, Microsoft YaHei, WenQuanYi, Airal, sans-serif;
+      user-select: none
+    }
+
+    .sns {
+      margin: 1em auto;
+
+      a {
+        width: 55px;
+        color: #999;
+        display: inline-block;
+
+        &:hover {
+          color: white;
+        }
+      }
+    }
+
+    footer {
+      border: 0;
+      color: #999;
+      padding: 0;
+    }
+  }
+}
+
+.page {
+  margin: 0 20px;
+  margin-bottom: 2em;
+  
+  p {
+    line-height: 1.5em;
+  }
+}
+.pageTitle {
+  font-size: large;
+  font-weight: bolder;
+}
+
+.signatureDiv {
+  width: 100%;
+  text-align: right;
+}
+
+.blogPic {
+  width: 100%;
+  text-align: center;
+}
+
+.quote {
+  display: block;
+  border-width: 2px 0;
+  border-style: solid;
+  border-color: #cacaca;
+  padding:0 10px 10px 1em;
+  background: #f5f5f580;
+  margin: 1.5em 0;
+  position: relative;
+  font-style: italic;
+}
+.quote:before {
+  content: '\201C';
+  position: absolute;
+  top: 0em;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 3rem;
+  height: 2rem;
+  font: 6em/0.8em 'PT Sans', sans-serif;
+  color: #666;
+  text-align: center;
+}
+.quote:after {
+  content: "\2013 \2003" attr(cite);
+  display: block;
+  text-align: right;
+  font-size: 0.875em;
+  color: #b8acbf;
+}
+
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+
+/* Tomorrow Comment */
+.highlight .comment,
+.highlight .quote {
+  color: #8e908c;
+}
+
+/* Tomorrow Red */
+.highlight .variable,
+.highlight .template-variable,
+.highlight .tag,
+.highlight .name,
+.highlight .selector-id,
+.highlight .selector-class,
+.highlight .regexp,
+.highlight .deletion {
+  color: #c82829;
+}
+
+/* Tomorrow Orange */
+.highlight .number,
+.highlight .built_in,
+.highlight .builtin-name,
+.highlight .literal,
+.highlight .type,
+.highlight .params,
+.highlight .meta,
+.highlight .link {
+  color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.highlight .attribute {
+  color: #eab700;
+}
+
+/* Tomorrow Green */
+.highlight .string,
+.highlight .symbol,
+.highlight .bullet,
+.highlight .addition {
+  color: #718c00;
+}
+
+/* Tomorrow Blue */
+.highlight .title,
+.highlight .section {
+  color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.highlight .keyword,
+.highlight .selector-tag {
+  color: #8959a8;
+}
+
+.highlight {
+  display: block;
+  overflow-x: auto;
+  background: white;
+  color: #4d4d4c;
+  padding: 0.5em;
+}
+
+.highlight .emphasis {
+  font-style: italic;
+}
+
+.highlight .strong {
+  font-weight: bold;
+}
+
+@import "_partial/header";
+@import "_partial/post";
+@import "_partial/archive";
+@import "_partial/paginator";
+@import "_partial/footer";
